@@ -21,26 +21,20 @@ import lombok.Data;
  *
  */
 @Entity
-
 @Table(name = "user_stocks")
-
 @Data
 public class UserStocks {
 
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Column(name = "id")
 	private Long userStocksID;
 
 	@ManyToOne(optional = true, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User users;
 
 	@ManyToOne(optional = true, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-
 	@JoinColumn(name = "stock_id", referencedColumnName = "id")
 	private Stock stocks;
 
